@@ -20,15 +20,11 @@ const usePokemonTypesListQuery = () => {
   });
 };
 
-type FilterByTypeProps = {
-  activeType?: string;
-};
-
 type TypeList = {
   to: string;
 } & NamedAPIResource;
 
-export default function FilterByType({ activeType }: FilterByTypeProps) {
+export default function FilterByType() {
   const { data, isLoading } = usePokemonTypesListQuery();
   const navigate = useNavigate();
 

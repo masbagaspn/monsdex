@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { useNavigate } from "@tanstack/react-router";
 
 import { cn } from "@/lib/utils";
 
@@ -31,7 +30,6 @@ export default function PokemonCard({
   ...rest
 }: PokemonCardProps) {
   const { data, isLoading } = usePokemonDetailQuery(pokemon.name);
-  const navigate = useNavigate();
 
   if (isLoading)
     return (
@@ -45,10 +43,9 @@ export default function PokemonCard({
       <div
         key={pokemon.name}
         className={cn(
-          "flex w-full cursor-pointer flex-row justify-between gap-2 rounded-lg bg-neutral-50 p-1 shadow-xl md:aspect-[2/3] md:flex-col lg:p-2",
+          "flex w-full flex-row justify-between gap-2 rounded-lg bg-neutral-50 p-1 shadow-xl md:aspect-[2/3] md:flex-col md:p-2",
           className,
         )}
-        onClick={() => navigate({ to: `/pokemon/${pokemon.name}` })}
         {...rest}
       >
         <PokemonCardImage />

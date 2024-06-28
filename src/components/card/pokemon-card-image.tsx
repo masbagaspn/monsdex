@@ -15,7 +15,7 @@ export default function PokemonCardImage() {
   return (
     <div
       className={cn(
-        "relative flex aspect-square h-auto w-36 items-center justify-center rounded-md p-2 lg:w-full",
+        "relative flex aspect-square h-auto w-24 items-center justify-center rounded-md p-2 md:w-full",
         [
           type === "normal" && "bg-gray-200",
           type === "fighting" && "bg-orange-200",

@@ -3,5 +3,5 @@ module.exports = {
   singleQuote: false,
   tabWidth: 2,
   semi: true,
-  tailwindFunctions: ["clsx", "cn"],
+  tailwindFunctions: ["clsx", "cn", "cva"],
 };

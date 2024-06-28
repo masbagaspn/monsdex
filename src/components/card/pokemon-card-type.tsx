@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "@tanstack/react-router";
 import { cva, VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
@@ -6,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { PokemonTypeVariants } from "@/types";
 
 const pokemonCardTypeVariants = cva(
-  "capitalize text-center text-[8px] md:text-[10px] font-medium px-2 py-1 text-neutral-50 rounded",
+  "cursor-pointer rounded px-2 py-1 text-center text-[8px] font-semibold uppercase text-neutral-50 md:text-[8px]",
   {
     variants: {
       type: {
@@ -41,5 +42,13 @@ type PokemonCardTypeProps = {
   VariantProps<typeof pokemonCardTypeVariants>;
 
 export default function PokemonCardType({ type }: PokemonCardTypeProps) {
-  return <div className={cn(pokemonCardTypeVariants({ type }))}>{type}</div>;
+  const navigate = useNavigate();
+  return (
+    <div
+      onClick={() => navigate({ to: `/type/${type}` })}
+      className={cn(pokemonCardTypeVariants({ type }))}
+    >
+      {type}
+    </div>
+  );
 }
